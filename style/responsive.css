@@ -1,0 +1,386 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.menu-toggle,
+.menu-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  nav .logo {
+    max-width: 24%;
+  }
+  nav ul {
+    width: 72%;
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+
+  #container,
+  #contact {
+    background: none;
+  }
+  #container::before,
+  #contact::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: center / cover no-repeat;
+  }
+  #container::before {
+    background-image: url(../img/ecouteurs-sans-fil-eclairage-au-neon-style-cyberpunk_23-2151074298.jpg);
+  }
+  #contact::before {
+    background-image: url(../img/caracteres-wifi-ordinateur-portable-casque_23-2148291098.jpg);
+  }
+
+  header h1 {
+    font-size: 2.4em;
+  }
+  #container header p {
+    max-width: 60%;
+  }
+  .grid-child img {
+    height: 280px;
+  }
+
+  #deux #apropos p {
+    max-width: 80%;
+  }
+
+  #galerie .flex {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: none;
+  }
+  #galerie .flex-child:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+  #galerie .flex-child img {
+    height: 300px;
+  }
+
+  #contact form {
+    width: 50%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem 1rem;
+  }
+  nav .logo {
+    max-width: none;
+    width: 120px;
+    flex: none;
+  }
+  nav img {
+    width: 100%;
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.9rem;
+    color: var(--txt);
+    background: rgba(10, 32, 53, 0.85);
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid var(--vlt);
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .menu-toggle:checked + .menu-btn {
+    background: var(--vlt);
+    color: var(--txte);
+  }
+
+  .menu-toggle:focus-visible + .menu-btn {
+    outline: 3px solid var(--txt);
+    outline-offset: 3px;
+  }
+
+  .icone-fermer {
+    display: none;
+  }
+  .menu-toggle:checked + .menu-btn .icone-ouvrir {
+    display: none;
+  }
+  .menu-toggle:checked + .menu-btn .icone-fermer {
+    display: inline;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    background: var(--font);
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition:
+      max-height 0.4s ease,
+      visibility 0s linear 0.4s;
+  }
+  .menu-toggle:checked ~ ul {
+    max-height: 24rem;
+    visibility: visible;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+    transition:
+      max-height 0.4s ease,
+      visibility 0s;
+  }
+  nav li {
+    padding: 0;
+    border-top: 1px solid rgba(246, 223, 241, 0.15);
+  }
+  nav ul li a {
+    padding: 1rem 1.25rem;
+    gap: 10px;
+  }
+
+  #container section {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+  #container header {
+    flex: 1;
+    justify-content: center;
+    align-items: flex-start;
+    top: 0;
+    padding: 2rem 1.25rem;
+    gap: 1.25rem;
+  }
+  header h1 {
+    font-size: 2em;
+  }
+  #container header p {
+    max-width: 100%;
+    font-size: 1.05em;
+  }
+  #container header .btn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  #container header button {
+    margin: 0;
+    padding: 0;
+    flex: 1 1 160px;
+  }
+  #container header button a {
+    display: block;
+    padding: 0.9rem 1rem;
+  }
+
+  .produits h1 {
+    font-size: 1.7em;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 1rem 0;
+  }
+  .grid-child:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 8px);
+  }
+
+  #apropos {
+    margin-block: 1rem;
+  }
+  #deux #apropos h1 {
+    font-size: 2em;
+  }
+  #deux #apropos p {
+    max-width: 100%;
+  }
+  #deux .valeurs h1 {
+    font-size: 1.7em;
+    padding: 1rem 1rem 0;
+  }
+  #deux .valeurs .flex {
+    flex-direction: column;
+    margin-block: 0.5rem;
+    gap: 1.25rem;
+  }
+  #deux .experiences {
+    margin: 1rem;
+  }
+  #deux .experiences section {
+    text-align: center;
+  }
+  #deux .experiences section h1 {
+    font-size: 2.2em;
+  }
+
+  #services #trois h1 {
+    font-size: 2.2em;
+  }
+  #services .flex {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+
+  #galerie .contain h1 {
+    font-size: 1.7em;
+  }
+  #galerie .flex {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+  #galerie .flex-child:last-child:nth-child(3n + 1) {
+    grid-column: auto;
+  }
+  #galerie .flex-child h1 {
+    font-size: 18px;
+    padding: 0.75rem 1rem;
+  }
+  #galerie .flex-child img {
+    height: 260px;
+  }
+
+  #contact form {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  #contact section input,
+  textarea,
+  #contact button {
+    font-size: 16px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  footer p {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  nav .logo {
+    width: 100px;
+  }
+  nav ul {
+    font-size: 17px;
+  }
+
+  
+  header h1 {
+    font-size: 1.7em;
+  }
+  header h2 {
+    font-size: 0.9em;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .grid-child:last-child:nth-child(odd) {
+    width: auto;
+    justify-self: stretch;
+  }
+  .grid-child img {
+    height: 240px;
+  }
+
+  #deux #apropos h1 {
+    font-size: 1.7em;
+  }
+  #deux .experiences {
+    margin: 1rem 0.5rem;
+    padding: 0.5rem 0;
+  }
+  #deux .experiences section h1 {
+    font-size: 1.8em;
+  }
+  #deux .experiences section span {
+    font-size: 0.85em;
+  }
+
+  #services #trois h1 {
+    font-size: 1.75em;
+  }
+  #services .flex {
+    grid-template-columns: 1fr;
+  }
+
+  #galerie .flex {
+    grid-template-columns: 1fr;
+  }
+  #galerie .flex-child img {
+    height: 300px;
+  }
+
+  .conteneur h1 {
+    font-size: 1.7em;
+  }
+
+  footer {
+    font-size: 15px;
+  }
+}
+
+
+@media (hover: none) {
+  nav a:hover {
+    scale: 1;
+  }
+  .grid-child img:hover,
+  #galerie .flex-child img:hover {
+    scale: 1;
+  }
+  #services .flex .flex-child:hover {
+    scale: 1;
+  }
+  #deux .valeurs .flex-child:hover {
+    transform: none;
+  }
+}
